@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const employeeForm = document.getElementById('employee-form');
     const employeeTable = document.getElementById('employee-table').querySelector('tbody');
     let employees = JSON.parse(localStorage.getItem('employees')) || [];
-
+// validation 
     function validForm(employee, employees) {
         const { id, name, email } = employee;
     
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
     
-
+//render dữ liệu
     function renderEmployees() {
         let text = "";
         for (let index = 0; index < employees.length; index++) {
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-
+// Xóa dữ liệu
     employeeTable.addEventListener('click', (event) => {
         const target = event.target;
         if (target.classList.contains('delete')) {
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderEmployees();
             }
         }
-
+//Thay đổi tiêu đề của Form thành Update Form và tiêu đề của button thành "Update employee"
         if (target.classList.contains('edit')) {
             const employeeId = target.getAttribute('data-id');
             const employee = employees.find(emp => emp.id === employeeId);
